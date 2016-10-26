@@ -1,0 +1,104 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../placetobe-behaviors/placetobe-styles-behavior.html">
+<link rel="import" href="../placetobe-styles/placetobe-styles.html">
+<link rel="import" href="placetobe-hero-illustration.html">
+
+<!--
+`placetobe-hero`
+Placetobe Hero
+
+@demo demo/index.html 
+-->
+
+<dom-module id="placetobe-hero">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+
+      :host section {
+        @apply(--placetobe-border-box);
+        height: 100%;
+        width: 100%;
+        background-color: var(--placetobe-color-yellow);
+        position: relative;
+      }
+
+      :host placetobe-hero-illustration {
+        @apply(--placetobe-border-box);
+        position: absolute;
+        @apply(--placetobe-flex-item--none);
+        @apply(--placetobe-item-align--end);
+        height: 100%;
+        width: 100%;
+      }
+
+      :host section div {
+        @apply(--placetobe-border-box);
+        @apply(--placetobe-flex-layout--vertical);
+        @apply(--placetobe-flex-align--center);
+        height: 100%;
+        max-width: calc( var(--placetobe-layout-width) + (var(--placetobe-margin) * 2) );
+        margin: 0 auto;
+        padding: calc( var(--placetobe-margin));
+        position: relative;
+      }
+
+      :host div header,
+      :host div footer {
+        @apply(--placetobe-border-box);
+        @apply(--placetobe-flex-item--none);
+        max-width: var(--placetobe-column-width);
+      }
+
+      :host div header ::slotted(h2) {
+        @apply(--placetobe-font-heading1-regular);
+        color: var(--placetobe-color-darkblue);
+      }
+
+      :host div header ::slotted(h2 b, h2 strong) {
+        @apply(--placetobe-font-heading1);
+      }
+
+    </style>
+
+    <section>
+      <placetobe-hero-illustration
+        car-parked="[[carParked]]"
+        car-gone="[[carGone]]"
+      ></placetobe-hero-illustration>
+
+      <div>
+        <header><slot name="header">This is a test</slot></header>
+        <footer><slot name="footer">This is boo</slot></footer>
+      </div>
+      <aside><slot name="aside"></slot></aside>
+
+    </section>
+
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'placetobe-hero',
+      behaviors: [PlacetobeStylesBehavior],
+
+      properties: {
+
+        carParked: {
+          type: Boolean,
+          value: false
+        },
+
+        carGone: {
+          type: Boolean,
+          value: false
+        }
+
+      }
+
+    });
+  </script>
+</dom-module>
