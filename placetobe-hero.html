@@ -82,6 +82,7 @@ Placetobe Hero
         opacity: 0;
         display: block!important;
         transform: translate(100px, 300px);
+        pointer-events: none;
       }
 
       :host div main {
@@ -100,7 +101,8 @@ Placetobe Hero
       :host div main ::slotted(main > *[hidden]) {
         display: block!important;
         opacity: 0;
-        transform: translate(0, 0%);        
+        transform: translate(0, 0%);
+        pointer-events: none;    
       }
 
       :host div main ::slotted(* h2) {
