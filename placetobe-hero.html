@@ -21,8 +21,9 @@ Placetobe Hero
         @apply(--placetobe-border-box);
         height: 100%;
         width: 100%;
-        background-color: var(--placetobe-color-yellow);
         position: relative;
+        transition: 0.5s background-color ease-in;
+        background-color: var(--placetobe-hero-color, var(--placetobe-color-green));
       }
 
       :host placetobe-hero-illustration {
@@ -43,21 +44,72 @@ Placetobe Hero
         margin: 0 auto;
         padding: calc( var(--placetobe-margin));
         position: relative;
+        overflow: hidden;
       }
 
-      :host div header,
-      :host div footer {
+      :host div main {
         @apply(--placetobe-border-box);
         @apply(--placetobe-flex-item--none);
         max-width: var(--placetobe-column-width);
+        position: relative;
+        z-index: 1;
       }
 
-      :host div header ::slotted(h2) {
+      :host div aside {
+        position: absolute;
+        bottom: -18px;
+        right: var(--placetobe-margin);
+        z-index: 0;
+      }
+
+      :host div aside ::slotted(*) {
+        height: calc( var(--placetobe-margin) * 8 );
+        width: calc( var(--placetobe-margin) * 8 );
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        transition: 0.5s all;
+      }
+
+      @media (min-width: 601px) {
+        :host div aside ::slotted(*) {
+          height: calc( var(--placetobe-margin) * 16 );
+          width: calc( var(--placetobe-margin) * 16 );
+        }
+      }
+
+      :host div aside ::slotted(*[hidden]) {
+        opacity: 0;
+        display: block!important;
+        transform: translate(100px, 300px);
+      }
+
+      :host div main {
+        @apply(--placetobe-flex-item--1);
+        position: relative;
+      }
+
+      :host div main ::slotted(main > *) {
+        transition: 0.5s all;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translate(0, -50%);
+      }
+
+      :host div main ::slotted(main > *[hidden]) {
+        display: block!important;
+        opacity: 0;
+        transform: translate(0, 0%);        
+      }
+
+      :host div main ::slotted(* h2) {
         @apply(--placetobe-font-heading1-regular);
         color: var(--placetobe-color-darkblue);
+        margin-bottom: var(--placetobe-margin);
       }
 
-      :host div header ::slotted(h2 b, h2 strong) {
+      :host div main ::slotted(h2 b, h2 strong) {
         @apply(--placetobe-font-heading1);
       }
 
@@ -70,10 +122,9 @@ Placetobe Hero
       ></placetobe-hero-illustration>
 
       <div>
-        <header><slot name="header">This is a test</slot></header>
-        <footer><slot name="footer">This is boo</slot></footer>
+        <main><slot name="main"></slot></main>
+        <aside><slot name="illustration"></slot></aside>
       </div>
-      <aside><slot name="aside"></slot></aside>
 
     </section>
 

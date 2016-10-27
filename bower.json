@@ -12,7 +12,8 @@
     "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^1.0.0",
     "web-component-tester": "^4.0.0",
     "webcomponentsjs": "webcomponents/webcomponentsjs#^0.7.0",
-    "placetobe-button": "Placetobe/placetobe-button"
+    "placetobe-button": "Placetobe/placetobe-button",
+    "placetobe-illustrations": "Placetobe/placetobe-illustrations"
   },
   "version": "1.0.0",
   "homepage": "https://github.com/Placetobe/placetobe-hero"

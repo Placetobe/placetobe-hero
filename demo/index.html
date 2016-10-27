@@ -18,7 +18,9 @@
     <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
 
     <link rel="import" href="../placetobe-hero.html">
+    <link rel="import" href="../../placetobe-styles/placetobe-styles.html">
     <link rel="import" href="../../placetobe-button/placetobe-button.html">
+    <link rel="import" href="../../placetobe-illustrations/placetobe-illustrations.html">
 
     <style is="custom-style" include="demo-pages-shared-styles">
       demo-snippet {
@@ -29,7 +31,8 @@
 
       placetobe-hero {
         width: 100%;
-        height: 40vh;
+        height: 0;
+        min-height: 360px;
       }
     </style>
   </head>
@@ -40,12 +43,52 @@
       <demo-snippet>
         <template>
           <placetobe-hero>
-            <h2 slot="header">Morbi leo risus, porta ac <strong>consectetur ac</strong>, vestibulum at eros.</h2>
-            <h2 slot="footer"><placetobe-button><span>This is a thing</span></placetobe-button></h2>
+            <main slot="main">
+              <span id="main-1">
+                <h2>Morbi leo risus, porta ac <strong>consectetur ac</strong>, vestibulum at eros.</h2>
+                <placetobe-button><span>This is a thing</span></placetobe-button>
+              </span>
+              <span id="main-2" hidden>
+                <h2>Halu leo risus, porta ac <strong>consectetur ac</strong>, vestibulum at eros.</h2>
+                <placetobe-button><span>This is a thing</span></placetobe-button>
+              </span>
+            </main>
+            <placetobe-manholdingkey-illustration slot="illustration" id="ill-1"></placetobe-manholdingkey-illustration>
+            <placetobe-manreading-illustration slot="illustration" id="ill-2" hidden></placetobe-manreading-illustration>
           </placetobe-hero>
+
+          <button onclick="d.toggle()">Toggle</button>
+
+          <script>
+            var d =  document.querySelector('demo-snippet');
+            d.toggle = function() {
+              toggleElement('#ill-1');
+              toggleElement('#ill-2');
+              toggleElement('#main-1');
+              toggleElement('#main-2');
+              toggleBackground();
+            }
+
+            function toggleElement(selector) {
+              var element = document.querySelector(selector);
+              if(element.hidden) element.removeAttribute('hidden');
+              else element.setAttribute('hidden', true);
+            }
+
+            function toggleBackground() {
+              var element = document.querySelector('placetobe-hero');
+              var currentColor = element.customStyle['--placetobe-hero-color'];
+              element.customStyle['--placetobe-hero-color'] = (currentColor == 'var(--placetobe-color-green)' || currentColor == undefined) ? 'var(--placetobe-color-yellow)' : 'var(--placetobe-color-green)';
+              element.updateStyles();
+            }
+          </script>
+
         </template>
+
       </demo-snippet>
     </div>
+
+
 
   </body>
 </html>
