@@ -110,7 +110,8 @@ Placetobe Hero
       }
 
       :host div main ::slotted(* h2) {
-        @apply(--placetobe-font-heading1-regular);
+        @apply(--placetobe-font-title);
+        font-weight: 400;
         color: var(--placetobe-color-darkblue);
         margin-bottom: var(--placetobe-margin);
       }
@@ -121,7 +122,7 @@ Placetobe Hero
       }
 
       :host div main ::slotted(h2 b, h2 strong) {
-        @apply(--placetobe-font-heading1);
+        font-weight: 600;
       }
 
     </style>
