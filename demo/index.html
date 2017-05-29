@@ -54,8 +54,8 @@
                 <placetobe-button><span>This is a thing</span></placetobe-button>
               </span>
             </main>
-            <placetobe-manholdingkey-illustration slot="illustration" id="ill-1"></placetobe-manholdingkey-illustration>
-            <placetobe-manreading-illustration slot="illustration" id="ill-2" hidden></placetobe-manreading-illustration>
+            <placetobe-support-illustration slot="illustration" id="ill-1"></placetobe-support-illustration>
+            <placetobe-future-illustration slot="illustration" id="ill-2" hidden></placetobe-future-illustration>
           </placetobe-hero>
 
           <button onclick="d.toggle()">Toggle</button>
@@ -67,7 +67,6 @@
               toggleElement('#ill-2');
               toggleElement('#main-1');
               toggleElement('#main-2');
-              toggleBackground();
             }
 
             function toggleElement(selector) {
@@ -75,13 +74,7 @@
               if(element.hidden) element.removeAttribute('hidden');
               else element.setAttribute('hidden', true);
             }
-
-            function toggleBackground() {
-              var element = document.querySelector('placetobe-hero');
-              var currentColor = element.customStyle['--placetobe-hero-color'];
-              element.customStyle['--placetobe-hero-color'] = (currentColor == 'var(--placetobe-color-green)' || currentColor == undefined) ? 'var(--placetobe-color-yellow)' : 'var(--placetobe-color-green)';
-              element.updateStyles();
-            }
+            
           </script>
 
         </template>

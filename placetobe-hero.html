@@ -1,7 +1,6 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../placetobe-behaviors/placetobe-styles-behavior.html">
 <link rel="import" href="../placetobe-styles/placetobe-styles.html">
-<link rel="import" href="placetobe-hero-illustration.html">
 
 <!--
 `placetobe-hero`
@@ -23,16 +22,7 @@ Placetobe Hero
         width: 100%;
         position: relative;
         transition: 0.5s background-color ease-in;
-        background-color: var(--placetobe-hero-color, var(--placetobe-color-green));
-      }
-
-      :host placetobe-hero-illustration {
-        @apply(--placetobe-border-box);
-        position: absolute;
-        @apply(--placetobe-flex-item--none);
-        @apply(--placetobe-item-align--end);
-        height: 100%;
-        width: 100%;
+        background-color: var(--placetobe-hero-color, #F4F1F0);
       }
 
       :host section div {
@@ -63,18 +53,19 @@ Placetobe Hero
       }
 
       :host div aside ::slotted(*) {
-        height: calc( var(--placetobe-margin) * 8 );
-        width: calc( var(--placetobe-margin) * 8 );
+        height: calc( var(--placetobe-margin) * 6 );
+        width: calc( var(--placetobe-margin) * 6 );
         position: absolute;
-        bottom: 0;
+        bottom: 80px;
         right: 0;
         transition: 0.5s all;
       }
 
       @media (min-width: 601px) {
         :host div aside ::slotted(*) {
-          height: calc( var(--placetobe-margin) * 16 );
-          width: calc( var(--placetobe-margin) * 16 );
+          bottom: 128px;
+          height: calc( var(--placetobe-margin) * 13 );
+          width: calc( var(--placetobe-margin) * 13 );
         }
       }
 
@@ -135,10 +126,6 @@ Placetobe Hero
     </style>
 
     <section>
-      <placetobe-hero-illustration
-        car-parked="[[carParked]]"
-        car-gone="[[carGone]]"
-      ></placetobe-hero-illustration>
 
       <div>
         <main><slot name="main"></slot></main>
