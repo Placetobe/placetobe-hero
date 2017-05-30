@@ -71,10 +71,10 @@ Placetobe Hero
       }
 
       :host div aside ::slotted(*) {
-        height: 100%;
-        width: 50%;
+        height: 60%;
+        width: 100%;
         top: 15%;
-        left: var(--placetobe-margin);
+        left: 0;
         right: auto;
         position: absolute;
         transition: 0.5s all;
@@ -122,11 +122,13 @@ Placetobe Hero
         -moz-transform: translate(0, 0);
         -o-transform: translate(0, 0);
         -ms-transform: translate(0, 0);
+        text-align: center;
     }
 
       @media (min-width: 601px) {
         :host div main ::slotted(main > *) {
           height: 50%;
+          text-align: left;
         }
       }
 
