@@ -85,9 +85,9 @@ Placetobe Hero
 
       @media (min-width: 601px) {
         :host div aside ::slotted(*) {
-          height: 90%;
+          height: 80%;
           width: auto;
-          top: 5%;
+          top: 10%;
           left: auto;
           right: var(--placetobe-margin);
         }        
@@ -127,19 +127,19 @@ Placetobe Hero
 
       @media (min-width: 601px) {
         :host div main ::slotted(main > *) {
-          height: 50%;
+          height: auto;
           text-align: left;
+          top: 50%;
+          bottom: auto;
+          transform: translateY(-50%);
+          position: absolute;
         }
       }
 
       :host div main ::slotted(main > *[hidden]) {
         display: block!important;
         opacity: 0;
-        transform: translate(0, 20px);
-        -webkit-transform: translate(0, calc(var(--placetobe-margin) * 4));
-        -moz-transform: translate(0, calc(var(--placetobe-margin) * 4));
-        -o-transform: translate(0, calc(var(--placetobe-margin) * 4));
-        -ms-transform: translate(0, calc(var(--placetobe-margin) * 4));
+        transform: translate(0, -30%);
         pointer-events: none;    
       }
 
@@ -159,7 +159,7 @@ Placetobe Hero
       }
 
       :host div main ::slotted(* placetobe-button) {
-        margin-bottom: var(--placetobe-margin);
+        margin: var(--placetobe-margin) 0;
         display: block;
       }
 
