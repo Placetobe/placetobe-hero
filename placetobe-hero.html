@@ -58,12 +58,13 @@ Placetobe Hero
         display: block;
         height: 50%;
         box-sizing: border-box;
+        overflow: hidden;
       }
 
       @media (min-width: 601px) {
         :host div aside {
-          height: 100%;
-          bottom: 0;
+          height: 80%;
+          bottom: 10%;
           width: 50%;
           left: auto;
           right: 0;
@@ -85,11 +86,13 @@ Placetobe Hero
 
       @media (min-width: 601px) {
         :host div aside ::slotted(*) {
-          height: 80%;
-          width: auto;
-          top: 10%;
+          height: 100%;
+          width: 100%;
+          top: 0;
           left: auto;
           right: var(--placetobe-margin);
+          object-position: 100% 100%;
+          object-fit: contain;
         }        
       }
 
